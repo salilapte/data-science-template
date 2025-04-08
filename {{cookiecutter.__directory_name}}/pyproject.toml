@@ -20,6 +20,37 @@ pandas-stubs = "^2.2.2"
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 {% endif %}
+
+{%- if cookiecutter.dependency_manager == "uv" %}
+[project]
+name = "{{ cookiecutter.__directory_name }}"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = "{{ cookiecutter.compatible_python_versions }}"
+authors = ["{{ cookiecutter.author_name }}"]
+dependencies = [
+    "fastparquet>=2024.11.0",
+    "matplotlib>=3.10.1",
+    "numpy>=2.2.4",
+    "pandas>=2.2.3",
+    "pyarrow>=19.0.1",
+    "scipy>=1.15.2",
+    "scipy-stubs>=1.15.2.1",
+    "seaborn>=0.13.2",
+    "hydra>=1.1.1"
+]
+
+[dependency-groups]
+dev = [
+    "pdoc3>=0.10.0",
+    "pytest>=6.2.5",
+    "pre-commit>=2.17.0",
+    "ipykernel>=6.28.0",
+    "pandas-stubs>=2.2.2"
+]
+{% endif %}
+
 [tool.ruff]
 # Exclude a variety of commonly ignored directories.
 exclude = [
