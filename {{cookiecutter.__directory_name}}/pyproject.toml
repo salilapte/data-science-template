@@ -49,10 +49,6 @@ dev = [
     "ipykernel>=6.28.0",
     "pandas-stubs>=2.2.2"
 ]
-
-[build-system]
-requires = ["uv"]
-build-backend = "uv"
 {% endif %}
 
 [tool.ruff]
